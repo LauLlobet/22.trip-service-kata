@@ -20,10 +20,14 @@ public class TripServiceCharectirizationsTest {
         TripService tripService = new TripService();
         User user = new User();
         List<Trip> listOfTrips = tripService.getTripsByUser(user, new UserSession(){
+            public UserSession setUp(){
+                userSession = this;
+                return this;
+            }
             public User getLoggedUser() {
                 return new User();
             }
-        });
+        }.setUp());
         assertThat(listOfTrips.size(), is(0));
     }
 

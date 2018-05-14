@@ -4,7 +4,7 @@ import org.craftedsw.tripservicekata.exception.CollaboratorCallException;
 
 public class UserSession {
 
-	private static final UserSession userSession = new UserSession();
+	protected static UserSession userSession = new UserSession();
 	
 	protected UserSession() {
 	}
