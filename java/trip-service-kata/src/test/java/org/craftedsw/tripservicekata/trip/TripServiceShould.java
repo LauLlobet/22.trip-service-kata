@@ -42,7 +42,7 @@ public class TripServiceShould {
                 .build();
 
         List<Trip> tripList = tripService.getTripsByUser(unrelatedUser);
-        assertThat(tripList.size(),is(0));
+        assertThat(tripList.size(),is(0)); //
     }
 
     @Test
@@ -62,6 +62,9 @@ public class TripServiceShould {
         assertThat(tripList.size(),is(2));
     }
 
+
+
+
     private class TripServiceTest extends  TripService {
         @Override
         protected User getLoggedUser() {
@@ -69,7 +72,7 @@ public class TripServiceShould {
         }
 
         @Override
-        protected List<Trip> findTripsByUser(User user) {
+        protected List<Trip> findTripsFor(User user) {
             return user.trips();
         }
     }
